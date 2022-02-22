@@ -1,0 +1,40 @@
+
+    <div id="myModal" class="modal" style="display: block;">
+      <div class="modal-content">
+        <button class="close" @click="$emit('toggleEdit')">&times;</button>
+        <div class="modal__header">
+            <h2>Edit</h2>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body-item">
+                <div class="modal__body-item-1">
+                    <label>First Name</label>
+                    <input type="text" v-model="row.name" >
+                </div>
+                <div class="modal__body-item-1">
+                    <label>Email Address</label>
+                    <input  type="email" v-model="row.email">
+                </div>
+            </div>
+            <div class="modal-body-item">
+                <div class="modal__body-item-1">
+                    <label>Gender</label>
+                    <div class="modal__body-item-select">
+                        <select id="gender" v-model="row.gender" name="gender">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <div class="modal-footer-save">
+                <button @click="$emit('toggleEdit')">Edit</button>
+            </div>
+            
+        </div>
+      </div>
+    </div>
