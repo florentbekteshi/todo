@@ -21,6 +21,7 @@ export default{
   methods:{
     addRow(){
      if(this.data.name == null || this.data.name == ''){
+       
        document.getElementById('nameInput').style.border = "1px solid red";
        return;
      }
