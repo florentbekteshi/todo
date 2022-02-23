@@ -3,29 +3,34 @@
 <div class="home-modal">
 
     <div id="myModal" class="modal" style="display:block;">
-    
       <!-- Modal content -->
       <div class="modal-content">
         <button class="close" @click="$emit('toggleFunc')">&times;</button>
         <div class="modal__header">
-            <h2>User - New</h2>
+            <h2 >{{editMode ? 'Edit': 'Add'}}</h2>
         </div>
         <div class="modal-body">
             <div class="modal-body-item">
                 <div class="modal__body-item-1">
                     <label>First Name</label>
-                    <input v-model="data.name" type="text" >
+                    <input v-if="editMode"  v-model="row.name" type="text">
+                    <input v-else id="nameInput"  v-model="data.name" type="text" >
                 </div>
                 <div class="modal__body-item-1">
                     <label>Email Address</label>
-                    <input v-model="data.email" type="email" >
+                    <input v-if="editMode"  v-model="row.email" type="email">
+                    <input v-else id="emailInput"  v-model="data.email" type="email" >
                 </div>
             </div>
             <div class="modal-body-item">
                 <div class="modal__body-item-1">
                     <label>Gender</label>
                     <div class="modal__body-item-select">
-                        <select v-model="data.gender" id="gender" name="gender">
+                        <select v-if="editMode" v-model="row.gender" id="gender" name="gender">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                        <select v-else v-model="data.gender" id="gender" name="gender" >
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
@@ -37,7 +42,8 @@
         </div>
         <div class="modal-footer">
             <div class="modal-footer-save">
-                <button @click="addRow()">Save</button>
+                <button v-if="!editMode" @click="addRow()">Save</button>
+                <button v-else @click="editRow()">Edit</button>
             </div>
             
         </div>

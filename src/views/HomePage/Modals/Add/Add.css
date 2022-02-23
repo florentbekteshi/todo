@@ -44,8 +44,16 @@
   .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background: none;
+  }
+  .close:hover{
+      background: rgba(255, 0, 0, 0.596);
+      color: white !important;
   }
   
   .close:hover,
@@ -63,6 +71,7 @@
   }
   .modal__body-item-1{
       width: 50%;
+      margin-bottom: 30px;
   }
 
   .modal-body-item{
@@ -70,20 +79,28 @@
       display: flex;
   }
   .modal__body-item-1 input{
-      height: 20px;
-      border: 1px solid rgb(138, 137, 137);
+      height: 30px;
       border-radius: 5px;
-      margin: 5px 0px 10px 0px;
+      border: 1px solid rgb(138, 137, 137);
+      display: flex;
+      font-size: 18px;
+      width: 80%;
+      margin: 0 auto;
   }
   .modal__body-item-1 label{
-      margin-bottom: 10px;
+      display: flex;
+      font-size: 20px;
+      justify-content: center;
+      margin-bottom: 5px;
   }
   .modal__body-item-1 select{
-      width: 74%;
-      height: 20px;
+      font-size: 16px;
+      width: 80%;
+      display: flex;
+      height: 30px;
       border: 1px solid rgb(138, 137, 137);
       border-radius: 5px;
-      margin: 5px 0px 10px 0px;
+      margin: 0px auto;
   }
   .modal__header{
       padding-bottom: 20px;
