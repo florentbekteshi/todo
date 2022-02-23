@@ -1,8 +1,6 @@
 
     <div class="user">
       <div class="container">
-  
-    
         <div class="user__item">
           <h2>Users</h2>
           <button @click="toggleModalNew()">Add Users</button>
@@ -21,14 +19,13 @@
             <td>{{row.name}}</td>
             <td>{{row.email}}</td>
             <td>{{row.gender}}</td>
-            <td><button @click="rowEdit=row; toggleModalEdit()">Edit</button></td>
-            <td><button @click="deleteRow">Delete</button></td>
+            <td><button @click="rowEdit= row; toggleEditModal(i+1)">Edit</button></td>
+            <td><button @click="deleteRow">Delete</button></td> 
           </tr>
         
         </table>
       </div>
-      <modalAdd v-if="showModalNew" @toggleFunc="toggleModalNew" @addRow="addRow"/>
-      <modalEdit v-if="showModalEdit" @toggleEdit="toggleModalEdit" :row="rowEdit"/>
+      <modalAdd v-if="showModalNew" @toggleFunc="toggleModalNew" :editMode="editMode" @addRow="addRow" :row="rowEdit"/>
     </div>
 
       
