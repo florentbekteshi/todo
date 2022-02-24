@@ -1,9 +1,5 @@
-
-
 <div class="home-modal">
-
     <div id="myModal" class="modal" style="display:block;">
-      <!-- Modal content -->
       <div class="modal-content">
         <button class="close" @click="$emit('toggleFunc')">&times;</button>
         <div class="modal__header">
@@ -13,43 +9,31 @@
             <div class="modal-body-item">
                 <div class="modal__body-item-1">
                     <label>First Name</label>
-                    <input v-if="editMode"  v-model="row.name" type="text">
-                    <input v-else id="nameInput"  v-model="data.name" type="text" >
+                    <input id="nameInput"  v-model="data.name" type="text" :class="{ 'border-danger': errors.name }">
                 </div>
                 <div class="modal__body-item-1">
                     <label>Email Address</label>
-                    <input v-if="editMode"  v-model="row.email" type="email">
-                    <input v-else id="emailInput"  v-model="data.email" type="email" >
+                    <input id="emailInput"  v-model="data.email" type="email" :class="{ 'border-danger': errors.email }">
                 </div>
             </div>
             <div class="modal-body-item">
                 <div class="modal__body-item-1">
                     <label>Gender</label>
                     <div class="modal__body-item-select">
-                        <select v-if="editMode" v-model="row.gender" id="gender" name="gender">
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                        </select>
-                        <select v-else v-model="data.gender" id="gender" name="gender" >
+                        <select v-model="data.gender" id="gender" name="gender" :class="{ 'border-danger': errors.gender }">
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
                     </div>
                 </div>
-                
             </div>
-            
         </div>
         <div class="modal-footer">
             <div class="modal-footer-save">
                 <button v-if="!editMode" @click="addRow()">Save</button>
                 <button v-else @click="editRow()">Edit</button>
             </div>
-            
         </div>
       </div>
     </div>
-
-
 </div>
-   

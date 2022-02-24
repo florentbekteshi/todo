@@ -61,3 +61,6 @@
   color: white;
   border-color: rgb(153, 6, 6);
 }
+.border-danger {
+  border:1px solid rgb(230, 27, 27) !important;
+}
